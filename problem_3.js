@@ -8,11 +8,9 @@ const isPrime = num => {
   return num > 1;
 };
 
-let currentLargestPrimeFactor = 1;
 let remaining = 600851475143;
 const result = [];
 const reducer = (accumulator, currentValue) => accumulator * currentValue;
-let currentTracked = 600851475143;
 let currentNum = 2;
 
 while (result.reduce(reducer, 0) !== remaining) {
@@ -22,4 +20,4 @@ while (result.reduce(reducer, 0) !== remaining) {
   currentNum++;
 }
 
-console.log(result);
+console.log(result[result.length - 1]);

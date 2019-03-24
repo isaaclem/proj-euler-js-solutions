@@ -17,6 +17,7 @@ console.log(result);
 //5+10+15+...+995 = 5*(1+2+....+199)
 
 // 1+2+3+...+p= p*(p+1) / 2
+// always get the same sum 1+𝑛=𝑛+1, 2+(𝑛−1)=𝑛+1, 3+(𝑛−2)=𝑛+1... So, the total is 𝑛+1 times the number of pairs
 const target = 999;
 
 const SumDivisibleBy = n => {

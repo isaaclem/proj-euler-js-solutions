@@ -4,35 +4,38 @@
 
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-//Solution 1 by using array
-const temp_arr = [1, 2];
-let arr_length = temp_arr.length;
-let result = 2;
+//Solution 1
+let limit = 4000000;
+let sum = 0;
+let a = 1;
+let b = 1;
 
-while (temp_arr[arr_length - 1] < 4000000) {
-  let newFibo = temp_arr[arr_length - 2] + temp_arr[arr_length - 1];
-  temp_arr.push(newFibo);
-  arr_length = temp_arr.length;
-  if (newFibo % 2 === 0) {
-    result += newFibo;
-  }
+while (b < limit) {
+  if (b % 2 === 0) sum += b;
+  let h = a + b;
+  a = b;
+  b = h;
 }
 
-console.log(result);
+console.log(sum);
 
-//Solution 2 without array
-let prevNum = 1;
-let currentNum = 2;
-let newFibo = 3;
-let result = 2;
+//Solution 2
+//Idea is to get rid of the testing for even values.
+//It is easy to prove that every third Fibonacci number is even.
+//  1  1  2  3  5  8  13  21  34  55  89  144 ...
+//  a  b  c  a  b  c  a   b   c   a   b   c
 
-while (newFibo < 4000000) {
-  if (newFibo % 2 === 0) {
-    result += newFibo;
-  }
-  prevNum = currentNum;
-  currentNum = newFibo;
-  newFibo = prevNum + currentNum;
+let limit = 4000000;
+let sum = 0;
+let a = 1;
+let b = 1;
+let c = a + b;
+
+while (c < limit) {
+  sum += c;
+  a = b + c;
+  b = c + a;
+  c = a + b;
 }
 
-console.log(result);
+console.log(sum);
